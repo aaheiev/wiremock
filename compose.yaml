@@ -1,0 +1,18 @@
+services:
+  api:
+    image: wiremock/wiremock:3.9.2
+    # image: outofcoffee/imposter
+    ports:
+      - 8080:8080
+    volumes:
+#      - ./petstore:/opt/imposter/config
+      - ./extensions:/var/wiremock/extensions
+      - ./__files:/home/wiremock/__files
+      - ./mappings:/home/wiremock/mappings
+
+#    command: /start-reload.sh
+#    healthcheck:
+#      test: [ "CMD", "curl", "-f", "http://localhost/healthcheck" ]
+#      interval: 10s
+#      timeout: 3s
+#      retries: 3
